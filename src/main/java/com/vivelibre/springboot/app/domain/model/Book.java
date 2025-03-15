@@ -2,17 +2,14 @@ package com.vivelibre.springboot.app.domain.model;
 
 import java.util.Objects;
 import com.fasterxml.jackson.annotation.JsonProperty;
-
 import io.swagger.v3.oas.annotations.media.Schema;
-
-
 import javax.annotation.Generated;
 
 /**
  * Book
  */
 
-@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2025-03-14T20:59:20.003255800+01:00[Europe/Madrid]")
+@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2025-03-15T22:09:19.942181200+01:00[Europe/Madrid]")
 public class Book {
 
   private Integer id;
@@ -35,8 +32,8 @@ public class Book {
   /**
    * Get id
    * @return id
-  */
-  
+   */
+
   @Schema(name = "id", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
   @JsonProperty("id")
   public Integer getId() {
@@ -55,8 +52,8 @@ public class Book {
   /**
    * Get title
    * @return title
-  */
-  
+   */
+
   @Schema(name = "title", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
   @JsonProperty("title")
   public String getTitle() {
@@ -75,8 +72,8 @@ public class Book {
   /**
    * Get publicationTimestamp
    * @return publicationTimestamp
-  */
-  
+   */
+
   @Schema(name = "publicationTimestamp", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
   @JsonProperty("publicationTimestamp")
   public String getPublicationTimestamp() {
@@ -95,8 +92,8 @@ public class Book {
   /**
    * Get pages
    * @return pages
-  */
-  
+   */
+
   @Schema(name = "pages", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
   @JsonProperty("pages")
   public Integer getPages() {
@@ -115,8 +112,8 @@ public class Book {
   /**
    * Get summary
    * @return summary
-  */
-  
+   */
+
   @Schema(name = "summary", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
   @JsonProperty("summary")
   public String getSummary() {
@@ -135,7 +132,7 @@ public class Book {
   /**
    * Get author
    * @return author
-  */
+   */
   @Schema(name = "author", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
   @JsonProperty("author")
   public Author getAuthor() {
@@ -156,11 +153,11 @@ public class Book {
     }
     Book book = (Book) o;
     return Objects.equals(this.id, book.id) &&
-        Objects.equals(this.title, book.title) &&
-        Objects.equals(this.publicationTimestamp, book.publicationTimestamp) &&
-        Objects.equals(this.pages, book.pages) &&
-        Objects.equals(this.summary, book.summary) &&
-        Objects.equals(this.author, book.author);
+            Objects.equals(this.title, book.title) &&
+            Objects.equals(this.publicationTimestamp, book.publicationTimestamp) &&
+            Objects.equals(this.pages, book.pages) &&
+            Objects.equals(this.summary, book.summary) &&
+            Objects.equals(this.author, book.author);
   }
 
   @Override

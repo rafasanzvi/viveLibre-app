@@ -23,8 +23,32 @@ paths:
                 type: array
                 items:
                   $ref: "#/components/schemas/Book"
+        "400":
+          description: Bad Request
+        "404":
+          description: Not found          
         "500":
           description: Error interno del servidor.
+          
+  /longBooksAndHarryName:
+    get:
+      summary: Obtener todos los libros
+      operationId: getLongBooksAndHarryName
+      responses:
+        "200":
+          description: Lista de libros obtenida correctamente
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/Book"
+        "400":
+          description: Bad Request
+        "404":
+          description: Not found
+        "500":
+          description: Error interno del servidor.        
           
 components:
   schemas:
@@ -32,6 +56,8 @@ components:
       type: object
       properties:
         name:
+          type: string
+        firstSurname:
           type: string
         bio:
           type: string

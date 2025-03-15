@@ -2,20 +2,22 @@ package com.vivelibre.springboot.app.domain.model;
 
 import java.util.Objects;
 import com.fasterxml.jackson.annotation.JsonProperty;
-
 import io.swagger.v3.oas.annotations.media.Schema;
 
 
+import java.util.*;
 import javax.annotation.Generated;
 
 /**
  * Author
  */
 
-@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2025-03-14T20:59:20.003255800+01:00[Europe/Madrid]")
+@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2025-03-15T21:57:21.387887400+01:00[Europe/Madrid]")
 public class Author {
 
   private String name;
+
+  private String firstSurname;
 
   private String bio;
 
@@ -27,8 +29,8 @@ public class Author {
   /**
    * Get name
    * @return name
-  */
-  
+   */
+
   @Schema(name = "name", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
   @JsonProperty("name")
   public String getName() {
@@ -39,6 +41,26 @@ public class Author {
     this.name = name;
   }
 
+  public Author firstSurname(String firstSurname) {
+    this.firstSurname = firstSurname;
+    return this;
+  }
+
+  /**
+   * Get firstSurname
+   * @return firstSurname
+   */
+
+  @Schema(name = "firstSurname", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("firstSurname")
+  public String getFirstSurname() {
+    return firstSurname;
+  }
+
+  public void setFirstSurname(String firstSurname) {
+    this.firstSurname = firstSurname;
+  }
+
   public Author bio(String bio) {
     this.bio = bio;
     return this;
@@ -47,8 +69,8 @@ public class Author {
   /**
    * Get bio
    * @return bio
-  */
-  
+   */
+
   @Schema(name = "bio", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
   @JsonProperty("bio")
   public String getBio() {
@@ -69,12 +91,13 @@ public class Author {
     }
     Author author = (Author) o;
     return Objects.equals(this.name, author.name) &&
-        Objects.equals(this.bio, author.bio);
+            Objects.equals(this.firstSurname, author.firstSurname) &&
+            Objects.equals(this.bio, author.bio);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(name, bio);
+    return Objects.hash(name, firstSurname, bio);
   }
 
   @Override
@@ -82,6 +105,7 @@ public class Author {
     StringBuilder sb = new StringBuilder();
     sb.append("class Author {\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
+    sb.append("    firstSurname: ").append(toIndentedString(firstSurname)).append("\n");
     sb.append("    bio: ").append(toIndentedString(bio)).append("\n");
     sb.append("}");
     return sb.toString();
