@@ -15,6 +15,7 @@ import org.springframework.stereotype.Service;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Service
 public class BooksServiceImpl implements BooksService{
@@ -38,6 +39,7 @@ public class BooksServiceImpl implements BooksService{
 
     @Override
     public List<Book> get400pagesAnsHarryNameBooks() {
-        return books;
+
+        return books.stream().filter(book -> book.getPages() > 400 && book.getTitle().toLowerCase().contains("harry")).collect(Collectors.toList());
     }
 }
