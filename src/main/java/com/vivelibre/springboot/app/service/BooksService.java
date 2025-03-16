@@ -18,4 +18,6 @@ public interface BooksService {
     Map<String, Object> getCalculatePageStats();
 
     Map<String, List<Book>> getBooksByAuthor();
+
+    Map<String, Object> getAuthorDuplicatedAndNotTimestamp();
 }

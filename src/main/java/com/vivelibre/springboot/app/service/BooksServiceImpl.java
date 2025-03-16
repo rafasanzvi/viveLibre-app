@@ -144,5 +144,28 @@ public class BooksServiceImpl implements BooksService{
         return books.stream().collect(Collectors.groupingBy(book -> book.getAuthor().getName()));
     }
 
+    @Override
+    public Map<String, Object> getAuthorDuplicatedAndNotTimestamp() {
+
+        //Verify duplicated Authors
+        Set<String> duplicateAuthors = books.stream()
+                .collect(Collectors.groupingBy(book -> book.getAuthor().getName(), Collectors.counting()))
+                .entrySet().stream()
+                .filter(entry -> entry.getValue() > 1)
+                .map(Map.Entry::getKey)
+                .collect(Collectors.toSet());
+
+        //Find books without publicationTimeStamp
+        List<Book> booksWithoutTimeStamp = books.stream()
+                .filter(book -> book.getPublicationTimestamp() == null)
+                .toList();
+
+        Map<String, Object> result = new HashMap<>();
+        result.put("duplicateAuthors", duplicateAuthors);
+        result.put("booksWithoutTimeStamp", booksWithoutTimeStamp);
+
+        return result;
+    }
+
 
 }

@@ -47,4 +47,9 @@ public class BooksController implements BooksApi{
     public ResponseEntity<Map<String, List<Book>>> getBooksByAuthor() {
         return ResponseEntity.ok(booksService.getBooksByAuthor());
     }
+
+    @Override
+    public ResponseEntity<Map<String, Object>> getAuthorDuplicatedAndNotTimestamp() {
+        return ResponseEntity.ok(booksService.getAuthorDuplicatedAndNotTimestamp());
+    }
 }

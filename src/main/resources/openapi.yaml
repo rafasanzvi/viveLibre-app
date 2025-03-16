@@ -136,7 +136,27 @@ paths:
         "404":
           description: Not found
         "500":
-          description: Error interno del servidor.        
+          description: Error interno del servidor.
+
+  /authorDuplicatedAndNotTimestamp:
+    get:
+      summary: Obtener todos los libros
+      operationId: getAuthorDuplicatedAndNotTimestamp
+      responses:
+        "200":
+          description: Lista de libros obtenida correctamente
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/Book"
+        "400":
+          description: Bad Request
+        "404":
+          description: Not found
+        "500":
+          description: Error interno del servidor.
           
 components:
   schemas:
