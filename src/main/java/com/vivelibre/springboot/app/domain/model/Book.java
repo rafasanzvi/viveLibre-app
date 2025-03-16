@@ -20,6 +20,8 @@ public class Book {
 
   private Integer pages;
 
+  private Integer wordCount;
+
   private String summary;
 
   private Author author;
@@ -27,6 +29,14 @@ public class Book {
   public Book id(Integer id) {
     this.id = id;
     return this;
+  }
+
+  public Integer getWordCount() {
+    return wordCount;
+  }
+
+  public void setWordCount(Integer wordCount) {
+    this.wordCount = wordCount;
   }
 
   /**

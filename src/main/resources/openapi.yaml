@@ -10,10 +10,10 @@ tags:
   description: Este endpoint maneja toda la información relacionada con los libros.
   
 paths:
-  /books:
+  /longBooksAndHarryName:
     get:
       summary: Obtener todos los libros
-      operationId: getBooks
+      operationId: getLongBooksAndHarryName
       responses:
         "200":
           description: Lista de libros obtenida correctamente
@@ -26,14 +26,102 @@ paths:
         "400":
           description: Bad Request
         "404":
-          description: Not found          
+          description: Not found
         "500":
           description: Error interno del servidor.
           
-  /longBooksAndHarryName:
+  /booksByJKRowling:
     get:
       summary: Obtener todos los libros
-      operationId: getLongBooksAndHarryName
+      operationId: getBooksByJKRowling
+      responses:
+        "200":
+          description: Lista de libros obtenida correctamente
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/Book"
+        "400":
+          description: Bad Request
+        "404":
+          description: Not found
+        "500":
+          description: Error interno del servidor.
+          
+  /sortAndBooksNumberByAuthor:
+    get:
+      summary: Obtener todos los libros
+      operationId: getSortAndBooksNumber
+      responses:
+        "200":
+          description: Lista de libros obtenida correctamente
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/Book"
+        "400":
+          description: Bad Request
+        "404":
+          description: Not found
+        "500":
+          description: Error interno del servidor.
+          
+  /dateFormatter:
+    put:
+      summary: Obtener todos los libros
+      operationId: getBooksDateFormatter
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: array
+              items:
+                $ref: '#/components/schemas/Book'
+      responses:
+        "200":
+          description: Lista de libros obtenida correctamente
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/Book"
+        "400":
+          description: Bad Request
+        "404":
+          description: Not found
+        "500":
+          description: Error interno del servidor.
+          
+  /calculatePageStats:
+    get:
+      summary: Obtener todos los libros
+      operationId: getCalculatePageStats
+      responses:
+        "200":
+          description: Lista de libros obtenida correctamente
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/Book"
+        "400":
+          description: Bad Request
+        "404":
+          description: Not found
+        "500":
+          description: Error interno del servidor.
+          
+  /booksByAuthor:
+    get:
+      summary: Obtener todos los libros
+      operationId: getBooksByAuthor
       responses:
         "200":
           description: Lista de libros obtenida correctamente
@@ -72,6 +160,8 @@ components:
         publicationTimestamp:
           type: string
         pages:
+          type: integer
+        wordCount:
           type: integer
         summary:
           type: string
