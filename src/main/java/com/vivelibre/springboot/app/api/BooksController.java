@@ -1,8 +1,12 @@
 package com.vivelibre.springboot.app.api;
 
+import com.vivelibre.springboot.app.client.ExternalServiceClient;
+import com.vivelibre.springboot.app.client.TokenProcessor;
 import com.vivelibre.springboot.app.domain.model.Book;
 import com.vivelibre.springboot.app.service.BooksService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
@@ -11,10 +15,28 @@ import java.util.Map;
 @RestController
 public class BooksController implements BooksApi{
 
+    @Autowired
+    private ExternalServiceClient externalServiceClient;
+
+    @Autowired
+    private TokenProcessor tokenProcessor;
+
     private final BooksService booksService;
 
     public BooksController(BooksService booksService) {
         this.booksService = booksService;
+    }
+
+    @GetMapping("/token")
+    public ResponseEntity<Map<String, String>> getProcessedToken() {
+
+        String token = externalServiceClient.getToken();
+
+        if(token == null || token.isEmpty()) {
+            return ResponseEntity.badRequest().body(Map.of("Error", "Token unable or empty"));
+        }
+        Map<String, String> response = tokenProcessor.processToken(token);
+        return ResponseEntity.ok(response);
     }
 
     @Override
