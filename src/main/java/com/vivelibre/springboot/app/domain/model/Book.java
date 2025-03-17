@@ -3,12 +3,14 @@ package com.vivelibre.springboot.app.domain.model;
 import java.util.Objects;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import io.swagger.v3.oas.annotations.media.Schema;
+import lombok.Data;
+
 import javax.annotation.Generated;
 
 /**
  * Book
  */
-
+@Data
 @Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2025-03-15T22:09:19.942181200+01:00[Europe/Madrid]")
 public class Book {
 
@@ -25,6 +27,9 @@ public class Book {
   private String summary;
 
   private Author author;
+
+  public Book(String harryPotter, int i, Author author1, String number) {
+  }
 
   public Book id(Integer id) {
     this.id = id;

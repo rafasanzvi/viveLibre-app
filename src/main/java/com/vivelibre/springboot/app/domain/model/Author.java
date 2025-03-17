@@ -3,6 +3,7 @@ package com.vivelibre.springboot.app.domain.model;
 import java.util.Objects;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import io.swagger.v3.oas.annotations.media.Schema;
+import lombok.Data;
 
 
 import java.util.*;
@@ -11,7 +12,7 @@ import javax.annotation.Generated;
 /**
  * Author
  */
-
+@Data
 @Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2025-03-15T21:57:21.387887400+01:00[Europe/Madrid]")
 public class Author {
 
@@ -21,9 +22,7 @@ public class Author {
 
   private String bio;
 
-  public Author name(String name) {
-    this.name = name;
-    return this;
+  public Author(String s) {
   }
 
   /**
