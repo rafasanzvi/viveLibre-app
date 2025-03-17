@@ -74,4 +74,9 @@ public class BooksController implements BooksApi{
     public ResponseEntity<Map<String, Object>> getAuthorDuplicatedAndNotTimestamp() {
         return ResponseEntity.ok(booksService.getAuthorDuplicatedAndNotTimestamp());
     }
+
+    @Override
+    public ResponseEntity<List<Book>> getNewestBooks() {
+        return ResponseEntity.ok(booksService.getNewestBooks());
+    }
 }

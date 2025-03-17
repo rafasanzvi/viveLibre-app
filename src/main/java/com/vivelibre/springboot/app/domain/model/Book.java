@@ -1,9 +1,13 @@
 package com.vivelibre.springboot.app.domain.model;
 
+import java.time.LocalDateTime;
+import java.time.ZoneOffset;
 import java.util.Objects;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import io.swagger.v3.oas.annotations.media.Schema;
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import javax.annotation.Generated;
 
@@ -11,6 +15,8 @@ import javax.annotation.Generated;
  * Book
  */
 @Data
+@NoArgsConstructor
+@AllArgsConstructor
 @Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2025-03-15T22:09:19.942181200+01:00[Europe/Madrid]")
 public class Book {
 
@@ -29,6 +35,15 @@ public class Book {
   private Author author;
 
   public Book(String harryPotter, int i, Author author1, String number) {
+  }
+
+  // Method to get publication date
+  public LocalDateTime getPublicationDate() {
+    if (publicationTimestamp != null) {
+      long timestamp = Long.parseLong(publicationTimestamp);
+      return LocalDateTime.ofEpochSecond(timestamp, 0, ZoneOffset.UTC);
+    }
+    return null;
   }
 
   public Book id(Integer id) {

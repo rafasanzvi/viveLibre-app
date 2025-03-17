@@ -167,5 +167,12 @@ public class BooksServiceImpl implements BooksService{
         return result;
     }
 
+    @Override
+    public List<Book> getNewestBooks() {
+        return books.stream()
+                .filter(book -> book.getPublicationDate() != null)
+                .sorted(Comparator.comparing(Book::getPublicationDate).reversed())
+                .collect(Collectors.toList());
+    }
 
 }

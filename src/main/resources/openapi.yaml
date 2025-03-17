@@ -157,6 +157,26 @@ paths:
           description: Not found
         "500":
           description: Error interno del servidor.
+
+  /newestBooks:
+    get:
+      summary: Obtener todos los libros
+      operationId: getNewestBooks
+      responses:
+        "200":
+          description: Lista de libros obtenida correctamente
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/Book"
+        "400":
+          description: Bad Request
+        "404":
+          description: Not found
+        "500":
+          description: Error interno del servidor.
           
 components:
   schemas:

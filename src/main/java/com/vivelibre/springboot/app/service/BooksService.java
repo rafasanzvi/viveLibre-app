@@ -20,4 +20,6 @@ public interface BooksService {
     Map<String, List<Book>> getBooksByAuthor();
 
     Map<String, Object> getAuthorDuplicatedAndNotTimestamp();
+
+    List<Book> getNewestBooks();
 }
